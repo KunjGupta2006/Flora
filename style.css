@@ -1,0 +1,78 @@
+/* --- 1. GLOBAL ROOT VARIABLES (Warm & Grounded 2025 Palette) --- */
+:root {
+  --bg-sand: #F4EFE6;
+  --text-charcoal: #2C2A29;
+  --white: #FFFFFF;
+  --border-color: #E8E2D5;
+}
+/* --- Desktop Layout Engine Upgrade --- */
+@media (min-width: 768px) {
+    /* Use Grid on <main> to separate Sidebar from Product Section */
+    main {
+        display: grid;
+        grid-template-columns: 15rem 1fr; /* Sidebar takes 240px, items take remaining space */
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 2rem auto;
+        padding: 0 1rem;
+    }
+
+    .products-grid {
+        display: grid;
+        /* Automatically fits as many cards as possible, minimum width 250px */
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 2rem;
+    }
+}
+
+/* --- Micro-Component Layout System (Flexbox inside Card Elements) --- */
+.card-div {
+    background-color: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column; /* Image stacked over content text box */
+}
+
+.card-bottom {
+    display: flex;
+    justify-content: space-between; /* Pushes details left, actions right */
+    align-items: flex-start;
+    padding: 1rem;
+    gap: 1rem;
+}
+
+.card-bleft {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.card-bright {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Align price and input tracker to the right side */
+    gap: 0.5rem;
+}
+
+.cart-qty {
+    display: flex;
+    align-items: center;
+    border: 1px solid #E8E2D5;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.item-qty-input {
+    width: 40px;
+    text-align: center;
+    border: none;
+    outline: none;
+}
+
+.item-qty-btn {
+    background: transparent;
+    border: none;
+    padding: 0.25rem 0.5rem;
+    cursor: pointer;
+}
