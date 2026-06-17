@@ -9,43 +9,84 @@
 <body>
     
 <header class="main-header">
-    <div class="logo">FLORA.</div>
+    <div class="logo">FLORA</div>
     
-    <nav class="bottom-nav" aria-label="Main Navigation">
-        <a href="#" class="nav-item">
-            <span class="nav-icon">🏠</span>
-            <span class="nav-label">Home</span>
-        </a>
-        <a href="#environment" class="nav-item">
-            <span class="nav-icon">🌱</span>
-            <span class="nav-label">Shop</span>
-        </a>
-        <a href="#wishlist" class="nav-item">
-            <span class="nav-icon">♥</span>
-            <span class="nav-label">Wishlist</span>
-        </a>
-        <a href="#cart" class="nav-item">
-            <span class="nav-icon">🛒</span>
-            <span class="nav-label">Cart</span>
-        </a>
-    </nav>
-
     <div class="theme-utility">
-        <button id="theme-toggle" aria-label="Toggle theme">☀️</button>
+        <button id="theme-toggle" class="dark-theme-icons" aria-label="Toggle theme">
+            <img id="theme-icon" src="./assets/moon.png" alt="theme toggle button" />
+        </button>
     </div>
+    
 </header>
+<nav class="bottom-nav" aria-label="Main Navigation">
+    <a href="#" class="nav-item">
+        <span class="nav-icon">🏠</span>
+        <span class="nav-label">Home</span>
+    </a>
+    <a href="#environment" class="nav-item">
+        <span class="nav-icon">🌱</span>
+        <span class="nav-label">Shop</span>
+    </a>
+    <a href="#wishlist" class="nav-item">
+        <span class="nav-icon">♥</span>
+        <span class="nav-label">Wishlist</span>
+    </a>
+    <a href="#cart" class="nav-item">
+        <span class="nav-icon">🛒</span>
+        <span class="nav-label">Cart</span>
+    </a>
+</nav>
 
 <main>
-    <aside class="filters-sidebar">
+    <!-- filters -->
+    
+    <span id="filter-icon" class="dark-theme-icons" ><img  src="./assets/filter.png" alt="filter icon"/></span>
+    <aside class="filters-sidebar filters-hidden">
         <h3>Filters</h3>
-        </aside>
+        
+        <div class="filter-group">
+            <div class="filter-header">
+                <label for="filter-price">Max Price</label>
+                <span class="filter-value"><span id="price-display">1000</span> Rs</span>
+            </div>
+            <input type="range" min="0" max="5000" value="1000" step="50" id="filter-price" class="slider-input">
+        </div>
 
-    <section id="environment" class="products-section">
+        <div class="filter-group">
+            <h4>Light Exposure</h4>
+            <label class="checkbox-container">
+                <input type="checkbox" name="light" value="low-light">
+                <span class="custom-checkbox"></span>
+                Low
+            </label>
+            <label class="checkbox-container">
+                <input type="checkbox" name="light" value="bright-indirect">
+                <span class="custom-checkbox"></span>
+                Bright
+            </label>
+        </div>
+
+        <div class="filter-group">
+            <h4>Maintenance</h4>
+            <label class="radio-container">
+                <input type="radio" name="maintenance" value="all" checked>
+                <span class="custom-radio"></span>
+                All Levels
+            </label>
+            <label class="radio-container">
+                <input type="radio" name="maintenance" value="beginner-friendly">
+                <span class="custom-radio"></span>
+                Easy Care
+            </label>
+        </div>
+    </aside>
+    
+<section id="environment" class="products-section">
         <h2>Our Environment</h2>
         
         <div class="products-grid">
             
-            <article class="card-div">
+<article class="card-div">
                 <div class="card-img-wrapper">
                     <img src="https://images.unsplash.com/photo-1545241047-6083a3684587?auto=format&fit=crop&w=300&q=80" alt="Snake Plant in terracotta pot" />
                 </div>
@@ -57,15 +98,78 @@
                     </div>
                     
                     <div class="card-bright">
-                        <p class="item-price">$24</p>
+                        <p class="item-price">24Rs</p>
                         <div class="cart-qty">
                             <button class="item-qty-btn btn-decrement" aria-label="Decrease quantity">-</button>
-                            <p class="item-qty-input" aria-label="Quantity"> </p>
+                            <span class="item-qty-input" aria-label="Quantity">0</span>
                             <button class="item-qty-btn btn-increment" aria-label="Increase quantity">+</button>
                         </div>
                     </div>
                 </div>
-            </article>
+</article>
+<article class="card-div">
+    <div class="card-img-wrapper">
+        <img src="https://images.unsplash.com/photo-1614594975525-e45190c55d0b?auto=format&fit=crop&w=300&q=80" alt="Monstera Deliciosa with split leaves" />
+    </div>
+    
+    <div class="card-bottom">
+        <div class="card-bleft">
+            <h3 class="card-title">Monstera Deliciosa</h3>
+            <p class="card-desc">Bright indirect, iconic split leaves</p>
+        </div>
+        
+        <div class="card-bright">
+            <p class="item-price">45Rs</p>
+            <div class="cart-qty">
+                <button class="item-qty-btn btn-decrement" aria-label="Decrease quantity">-</button>
+                <span class="item-qty-input" aria-label="Quantity">0</span>
+                <button class="item-qty-btn btn-increment" aria-label="Increase quantity">+</button>
+            </div>
+        </div>
+    </div>
+</article>
+<article class="card-div">
+    <div class="card-img-wrapper">
+        <img src="https://images.unsplash.com/photo-1596547609652-9cf5d8d76921?auto=format&fit=crop&w=300&q=80" alt="Peace Lily with white blooms" />
+    </div>
+    
+    <div class="card-bottom">
+        <div class="card-bleft">
+            <h3 class="card-title">Peace Lily</h3>
+            <p class="card-desc">Low light, dark glossy foliage</p>
+        </div>
+        
+        <div class="card-bright">
+            <p class="item-price">32Rs</p>
+            <div class="cart-qty">
+                <button class="item-qty-btn btn-decrement" aria-label="Decrease quantity">-</button>
+                <span class="item-qty-input" aria-label="Quantity">0</span>
+                <button class="item-qty-btn btn-increment" aria-label="Increase quantity">+</button>
+            </div>
+        </div>
+    </div>
+</article>
+<article class="card-div">
+    <div class="card-img-wrapper">
+        <img src="https://images.unsplash.com/photo-1599599810769-bcde5a160d32?auto=format&fit=crop&w=300&q=80" alt="Aloe Vera succulent spikes" />
+    </div>
+    
+    <div class="card-bottom">
+        <div class="card-bleft">
+            <h3 class="card-title">Aloe Vera</h3>
+            <p class="card-desc">Bright light, medicinal succulent</p>
+        </div>
+        
+        <div class="card-bright">
+            <p class="item-price">18Rs</p>
+            <div class="cart-qty">
+                <button class="item-qty-btn btn-decrement" aria-label="Decrease quantity">-</button>
+                <span class="item-qty-input" aria-label="Quantity">0</span>
+                <button class="item-qty-btn btn-increment" aria-label="Increase quantity">+</button>
+            </div>
+        </div>
+    </div>
+</article>
 
         </div>
     </section>
@@ -75,5 +179,6 @@
     <p>&copy; 2026 FLORA. All rights reserved.</p>
 </footer>
 
+<script src="./index.js"></script>
 </body>
 </html>
