@@ -18,6 +18,9 @@ const maintenanceRadioBtns = document.querySelectorAll('input[name="maintenance"
 const productsGridContainer = document.querySelector('.products-grid');
 const productCardsList = document.querySelectorAll('.card-div');
 
+// cart icon
+const cartQty=document.getElementById("cart-qty-icon");
+
 console.log("hello");
 
 //toggle theme
@@ -35,12 +38,10 @@ themeToggleBtn.addEventListener("click", () => {
 });
 
 // Toggle filter sidebar layout states via main element classes
-if (filterIconBtn && filtersSidebar) {
-    const mainContainer = document.querySelector('main');
-    
+if (filterIconBtn) {
     filterIconBtn.addEventListener('click', () => {
         console.log("filter toggle");
-        mainContainer.classList.toggle('filters-hidden');
+        filtersSidebar.classList.toggle('filters-hidden');
     });
 }
 
@@ -52,6 +53,7 @@ if (priceSliderInput && priceDisplayValue) {
 }
 
 // Product interactive quantity selectors
+let cartQtyCount=parseInt(cartQty.textContent) || 0;
 productCardsList.forEach(card => {
     const decrementQtyBtn = card.querySelector('.btn-decrement');
     const incrementQtyBtn = card.querySelector('.btn-increment');
@@ -60,17 +62,22 @@ productCardsList.forEach(card => {
     if (decrementQtyBtn && incrementQtyBtn && currentQtyText) {
         let quantityCount = parseInt(currentQtyText.textContent) || 0;
 
+        // console.log(cartQtyCount);
         incrementQtyBtn.addEventListener('click', () => {
-            if (quantityCount < 100) {
+            if (quantityCount < 100 && cartQtyCount<100) {
                 quantityCount++;
                 currentQtyText.textContent = quantityCount;
+
+                cartQtyCount++;
+                cartQty.innerText=cartQtyCount;
             }
         });
-
         decrementQtyBtn.addEventListener('click', () => {
-            if (quantityCount > 0) {
+            if (quantityCount > 0 && cartQtyCount>0 ) {
                 quantityCount--;
                 currentQtyText.textContent = quantityCount;
+                cartQtyCount--;
+                cartQty.textContent=cartQtyCount;
             }
         });
     }

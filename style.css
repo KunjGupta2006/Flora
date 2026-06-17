@@ -33,7 +33,7 @@ body.dark-theme {
 }
 
 .dark-theme-icons {
-  background-color: var(--text-main);
+  background-color: var(--ethereal-blue);
   border-radius: 5px;
   padding: 4px;
 }
@@ -89,6 +89,22 @@ p, .card-desc {
 .nav-icon {
   display: inline;
 }
+#cart-qty-icon{
+  position:relative;
+  top:0.8rem;
+  height:12px;
+  width:12px;
+  border-radius: 50%;
+  opacity:0.7;
+  font-size: 9px;
+  font-weight: 600;
+  color:#FFFFFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color:rgb(47, 179, 111);
+}
+
 
 .card-title, .item-price, .item-qty-btn {
   font-family: var(--font-body);
@@ -120,7 +136,7 @@ p, .card-desc {
   justify-content: center;
   width: 2.5rem;
   height: 2.5rem;
-  background-color: var(--text-main);
+  background-color: var(--ethereal-blue);
   border-radius: 50%;
 }
 
@@ -461,7 +477,7 @@ main {
 /* --- Strict Desktop/Laptop Layout Execution (1024px onwards) --- */
 @media (min-width: 1024px) {
   .main-header {
-    padding: 1.25rem 2.5rem;
+    padding: 1.25rem 2.25rem;
     gap: 4rem;
   }
 
@@ -469,7 +485,6 @@ main {
     gap: 2.5rem;
   }
 
-  /* DEFAULT VIEW: Two-column master floor plan */
   main {
     display: grid;
     grid-template-columns: 260px 1fr;
@@ -481,10 +496,7 @@ main {
     transition: grid-template-columns 0.3s ease;
   }
 
-  main.filters-hidden {
-    grid-template-columns: 1fr;
-  }
-
+  
   .filters-sidebar {
     position: sticky;
     top: 6rem;
@@ -500,7 +512,7 @@ main {
   #filter-icon {
     position: absolute;
     top: 1.25rem;
-    left: 2rem; /* Anchors left over the main section when tracking wide */
+    left: 15rem;
     width: 1.4rem;
     height: 1.5rem;
     opacity: 0.9;
@@ -508,19 +520,12 @@ main {
     margin: 0;
   }
 
-  main:not(.filters-hidden) #filter-icon {
-    left: 13.25rem;
-  }
 
   .products-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto, auto);
     gap: 2rem;
     transition: grid-template-columns 0.3s ease;
-  }
-
-  main.filters-hidden .products-grid {
-    grid-template-columns: repeat(4, 1fr);
   }
 
   #environment {
